@@ -2,7 +2,7 @@
 {
     public interface IVeiculo
     {
-        void exibeBeneficios();
+        string exibeBeneficios();
         string exibeModelo();
         int getTipo();
     }

@@ -7,8 +7,6 @@ namespace SeminarioP2.Classes
     {
         private static ConcessionariaFacade instance = null;
 
-        private static CadastroEntities dbContext = null;
-
         private static ConcessionariaCarro concessionariaCarro = null;
         private static ConcessionariaMoto concessionariaMoto = null;
         private static ConcessionariaCaminhao concessionariaCaminhao = null;
@@ -29,8 +27,6 @@ namespace SeminarioP2.Classes
             concessionariaCaminhao = new ConcessionariaCaminhao();
             venda = new Venda();
 
-            dbContext = CadastroEntities.getInstance();
-
             mostrarLog("- Concessionarias iniciadas com sucesso -");
         }
 
@@ -39,6 +35,7 @@ namespace SeminarioP2.Classes
             if (veiculo == null)
             {
                 veiculo = concessionariaMoto.comprarVeiculo(modelo, beneficio);
+                saveChanges(veiculo);
                 mostrarLog("------- Moto comprada com sucesso -------");
             }
             else
@@ -52,6 +49,7 @@ namespace SeminarioP2.Classes
             if (veiculo == null)
             {
                 veiculo = concessionariaCarro.comprarVeiculo(modelo, beneficio);
+                saveChanges(veiculo);
                 mostrarLog("------ Carro comprado com sucesso  ------");
             }
             else
@@ -65,6 +63,7 @@ namespace SeminarioP2.Classes
             if (veiculo == null)
             {
                 veiculo = concessionariaCaminhao.comprarVeiculo(modelo, beneficio);
+                saveChanges(veiculo);
                 mostrarLog("----- Caminhao comprado com sucesso -----");
             }
             else
@@ -111,6 +110,18 @@ namespace SeminarioP2.Classes
                     if (venda.venderVeiculo(adapterCaminhao))
                         veiculo = null;
                     break;
+            }
+        }
+
+        public void saveChanges(IVeiculo veiculo) {
+            using (ConcessionariaEntities dbContext = new ConcessionariaEntities())
+            {
+                Table t = new Table();
+                t.Beneficio = veiculo.exibeBeneficios();
+                t.Modelo = veiculo.exibeModelo();
+                t.Categoria = veiculo.getTipo();
+                dbContext.Table.Add(t);
+                dbContext.SaveChanges();
             }
         }
 

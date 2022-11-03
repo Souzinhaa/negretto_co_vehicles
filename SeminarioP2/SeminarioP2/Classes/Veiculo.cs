@@ -21,9 +21,9 @@ namespace SeminarioP2.Classes
             this.beneficio = beneficio;
         }
 
-        public void exibeBeneficios()
+        public string exibeBeneficios()
         {
-            Console.WriteLine("benefio 1: " + this.beneficio);
+            return this.beneficio;
         }
 
         public string exibeModelo()

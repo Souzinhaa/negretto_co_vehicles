@@ -14,7 +14,7 @@ namespace SeminarioP2
         }
         private void atualizaGrid()
         {
-            using (CadastroEntities ctx = new CadastroEntities())
+            using (ConcessionariaEntities ctx = new ConcessionariaEntities())
             {
                 dgv_dados.DataSource = ctx.Table.ToList();
             }

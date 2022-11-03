@@ -15,7 +15,8 @@ namespace SeminarioP2
     public partial class Table
     {
         public int Id { get; set; }
-        public string Marca { get; set; }
         public string Modelo { get; set; }
+        public string Beneficio { get; set; }
+        public int Categoria { get; set; }
     }
 }

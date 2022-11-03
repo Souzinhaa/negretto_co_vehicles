@@ -61,21 +61,6 @@
     <Compile Include="Adapters\AdapterCaminhao.cs" />
     <Compile Include="Adapters\AdapterCarro.cs" />
     <Compile Include="Adapters\AdapterMoto.cs" />
-    <Compile Include="Cadastro.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cadastro.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Cadastro.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cadastro.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Cadastro.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cadastro.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Classes\BackProgram.cs" />
     <Compile Include="Classes\Venda.cs" />
     <Compile Include="Classes\VeiculoCaminhao.cs" />
@@ -87,6 +72,21 @@
     <Compile Include="Classes\ConcessionariaCarro.cs" />
     <Compile Include="Classes\ConcessionariaMoto.cs" />
     <Compile Include="Classes\Concessionaria.cs" />
+    <Compile Include="Concessionaria.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Concessionaria.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Concessionaria.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Concessionaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Concessionaria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Concessionaria.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,7 +115,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Table.cs">
-      <DependentUpon>Cadastro.tt</DependentUpon>
+      <DependentUpon>Concessionaria.tt</DependentUpon>
     </Compile>
     <Compile Include="Veiculos.cs" />
     <EmbeddedResource Include="Screens\Form1.resx">
@@ -132,12 +132,12 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Cadastro.edmx">
+    <EntityDeploy Include="Concessionaria.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Cadastro.Designer.cs</LastGenOutput>
+      <LastGenOutput>Concessionaria.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Cadastro.edmx.diagram">
-      <DependentUpon>Cadastro.edmx</DependentUpon>
+    <None Include="Concessionaria.edmx.diagram">
+      <DependentUpon>Concessionaria.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -154,22 +154,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cadastro.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Cadastro.edmx</DependentUpon>
-      <LastGenOutput>Cadastro.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Cadastro.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Cadastro.edmx</DependentUpon>
-      <LastGenOutput>Cadastro.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Concessionaria.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Concessionaria.edmx</DependentUpon>
+      <LastGenOutput>Concessionaria.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Concessionaria.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Concessionaria.edmx</DependentUpon>
+      <LastGenOutput>Concessionaria.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
