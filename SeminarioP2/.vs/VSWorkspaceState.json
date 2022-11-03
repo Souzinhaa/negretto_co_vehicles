@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\SeminarioP2"
+    "\\SeminarioP2",
+    "\\SeminarioP2\\Screens"
   ],
-  "SelectedNode": "\\SeminarioP2.sln",
+  "SelectedNode": "\\SeminarioP2\\Concessionaria.edmx",
   "PreviewInSolutionExplorer": false
 }
