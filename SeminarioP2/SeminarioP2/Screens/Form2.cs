@@ -16,20 +16,25 @@ namespace SeminarioP2
         {
             using (ConcessionariaEntities ctx = new ConcessionariaEntities())
             {
+                if(ctx == null)
+                {
+                    return;
+                }
+
                 dgv_dados.DataSource = ctx.Table.ToList();
             }
-        }
-
-        private void btn_voltar_home_Click(object sender)
-        {
-            Form1 voltarHome = new Form1();
-            voltarHome.Show();
-            Hide();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btn_voltar_home_Click(object sender, System.EventArgs e)
+        {
+            Form1 voltarHome = new Form1();
+            voltarHome.Show();
+            Hide();
         }
     }
 }
