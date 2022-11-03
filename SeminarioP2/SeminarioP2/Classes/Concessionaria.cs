@@ -3,9 +3,9 @@ namespace SeminarioP2.Classes
 {
     public class Concessionaria : IConcessionaria
     {
-        public IVeiculo comprarVeiculo(string beneficio)
+        public IVeiculo comprarVeiculo(string modelo, string beneficio)
         {
-            return new Veiculo(beneficio);
+            return new Veiculo(modelo, beneficio);
         }
     }
 }

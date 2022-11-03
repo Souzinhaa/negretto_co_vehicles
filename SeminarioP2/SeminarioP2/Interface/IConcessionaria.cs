@@ -2,6 +2,6 @@
 {
     public interface IConcessionaria
     {
-         IVeiculo comprarVeiculo(string beneficio);
+         IVeiculo comprarVeiculo(string modelo, string beneficio);
     }
 }

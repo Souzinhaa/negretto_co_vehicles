@@ -5,21 +5,33 @@ namespace SeminarioP2.Classes
 {
     public class VeiculoMoto : IVeiculo
     {
+        public int tipo { get; set; }
+        public string modelo { get; set; }
         public string beneficio { get; set; }
 
         public VeiculoMoto()
         {
         }
 
-        public VeiculoMoto(string beneficio)
+        public VeiculoMoto(string modelo, string beneficio)
         {
+            this.tipo = 1;
+            this.modelo = modelo;
             this.beneficio = beneficio;
         }
 
         public void exibeBeneficios()
         {
-            Console.WriteLine("Veiculo Moto toma:");
-            Console.WriteLine("benefio 1: " + this.beneficio);
+            Console.WriteLine("Beneficio: " + this.beneficio);
+        }
+
+        public string exibeModelo()
+        {
+            return modelo + " Moto";
+        }
+        public int getTipo()
+        {
+            return this.tipo;
         }
     }
 }

@@ -5,13 +5,15 @@ namespace SeminarioP2.Classes
 {
     public class Venda
     {
-
-        public void venderVeiculo(IVeiculo veiculo)
+        public bool venderVeiculo(Veiculo veiculo)
         {
-            Console.WriteLine("Venda realizada com sucesso");
-            Console.WriteLine("Beneficio Aplicado: ");
-            veiculo.exibeBeneficios();
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("------ Venda realizada com sucesso ------");
+            veiculo.exibeDetalhes();
+            Console.WriteLine("*****************************************");
+            Console.WriteLine();
 
+            return true;
         }
     }
 }

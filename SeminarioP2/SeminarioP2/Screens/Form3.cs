@@ -1,12 +1,15 @@
-﻿using System;
+﻿using SeminarioP2.Classes;
+using System;
 using System.Windows.Forms;
 
 namespace SeminarioP2
 {
     public partial class Form3 : Form
     {
+        BackProgram program;
         public Form3()
         {
+            program = BackProgram.getInstance();
             InitializeComponent();
         }
 
@@ -35,6 +38,26 @@ namespace SeminarioP2
 
         private void btn_cadastrar_Click(object sender, EventArgs e)
         {
+            
+            for (int i = 0; i < clb_lista_tipo_veiculos.Items.Count; i++)
+            {
+                if (clb_lista_tipo_veiculos.Items[i].ToString() == "Caminhão")
+                {
+                    program.comprarCaminhao(text_modelo.Text, text_beneficio.Text);
+                }
+
+                if (clb_lista_tipo_veiculos.Items[i].ToString() == "Carro")
+                {
+                    program.comprarCarro(text_modelo.Text, text_beneficio.Text);
+                }
+
+                if (clb_lista_tipo_veiculos.Items[i].ToString() == "Moto")
+                {
+                    program.comprarMoto(text_modelo.Text, text_beneficio.Text);
+                }
+            }
+
+            /*
             Table veiculo = new Table();
             veiculo.Marca = "Renaut";
             veiculo.Modelo = "Sandero 2022";
@@ -45,7 +68,7 @@ namespace SeminarioP2
                 ctx.SaveChanges();
                 
 
-            }
+            }*/
         }
     }
 }

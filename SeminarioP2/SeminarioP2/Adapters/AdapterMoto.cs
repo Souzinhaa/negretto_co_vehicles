@@ -1,14 +1,14 @@
 ﻿using System;
 namespace SeminarioP2.Classes
 {
-    public class AdapterMoto : VeiculoMoto
+    public class AdapterMoto : Veiculo
     {
-        public string beneficio { get; set; }
+        public VeiculoMoto moto { get; set; }
 
-        public virtual void exibeBeneficios()
+        public override void exibeDetalhes()
         {
-            Console.WriteLine("Veiculo Moto toma:");
-            Console.WriteLine("benefio 1: " + this.beneficio);
+            Console.WriteLine(moto.exibeModelo());
+            moto.exibeBeneficios();
         }
     }
 }

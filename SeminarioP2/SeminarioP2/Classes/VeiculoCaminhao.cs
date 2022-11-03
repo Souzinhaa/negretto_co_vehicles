@@ -5,21 +5,32 @@ namespace SeminarioP2.Classes
 {
     public class VeiculoCaminhao : IVeiculo
     {
+        public int tipo { get; set; }
+        public string modelo { get; set; }
         public string beneficio { get; set; }
 
         public VeiculoCaminhao()
         {
         }
 
-        public VeiculoCaminhao(string beneficio)
+        public VeiculoCaminhao(string modelo, string beneficio)
         {
+            this.tipo = 3;
+            this.modelo = modelo;
             this.beneficio = beneficio;
         }
 
         public void exibeBeneficios()
         {
-            Console.WriteLine("Veiculo Caminhao Beneficios:");
-            Console.WriteLine("benefio 1: " + this.beneficio);
+            Console.WriteLine("Beneficio: " + this.beneficio);
+        }
+        public string exibeModelo()
+        {
+            return modelo + " Caminhao";
+        }
+        public int getTipo()
+        {
+            return this.tipo;
         }
     }
 }
