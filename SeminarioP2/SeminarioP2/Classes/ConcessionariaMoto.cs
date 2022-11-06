@@ -5,7 +5,7 @@ namespace SeminarioP2.Classes
     {
         public IVeiculo comprarVeiculo(string modelo, string beneficio)
         {
-            return new VeiculoMoto(modelo, beneficio);
+            return new VeiculoCarro(modelo, beneficio);
         }
     }
 }
