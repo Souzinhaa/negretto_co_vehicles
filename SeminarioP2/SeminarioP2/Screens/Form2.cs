@@ -15,18 +15,16 @@ namespace SeminarioP2
     public partial class Form2 : Form
     {
 
-        string pathImageCaminhao = @"C:\Users\Bruno\Documents\C#\negretto_co_vehicles\SeminarioP2\SeminarioP2\Image\caminhao.png";
-        string pathImageCarro = @"C:\Users\Bruno\Documents\C#\negretto_co_vehicles\SeminarioP2\SeminarioP2\Image\carro.png";
-        string pathImageMoto = @"C:\Users\Bruno\Documents\C#\negretto_co_vehicles\SeminarioP2\SeminarioP2\Image\moto.jpg";
+        private static string pathImageCaminhao = @"C:\Users\Bruno\Documents\C#\negretto_co_vehicles\SeminarioP2\SeminarioP2\Image\caminhao.png";
+        private static string pathImageCarro = @"C:\Users\Bruno\Documents\C#\negretto_co_vehicles\SeminarioP2\SeminarioP2\Image\carro.png";
+        private static string pathImageMoto = @"C:\Users\Bruno\Documents\C#\negretto_co_vehicles\SeminarioP2\SeminarioP2\Image\moto.jpg";
+
         public Form2()
         {
             InitializeComponent();
-            atualizaGrid();
-
-
             listBoxVeiculos.MultiColumn = true;
-            // Set the selection mode to multiple and extended.
             listBoxVeiculos.SelectionMode = SelectionMode.MultiExtended;
+            atualizaGrid();
         }
 
         private void atualizaGrid()
@@ -39,34 +37,13 @@ namespace SeminarioP2
                 }
 
                 listBoxVeiculos.Items.Clear();
-                List<Table> v = ctx.Table.ToList();
-                List<IVeiculo> listaVeiculos = new List<IVeiculo>();
-                foreach (Table t in v)
+                List<Table> listItem = ctx.Table.ToList();
+
+                foreach (Table item in listItem)
                 {
-                    String i = t.Id.ToString();
-                    String id = null;
-
-                    switch (i.Length)
-                    {
-                        case (1):
-                            id = "00" + i;
-                            break;
-                        case (2):
-                            id = "0" + i;
-                            break;
-                        case (3):
-                            id = i;
-                            break;
-                    }
-
-                    listBoxVeiculos.Items.Add(id + " Veiculo - " + t.Modelo);
+                    listBoxVeiculos.Items.Add(tratarId(item.Id.ToString()) + " Veiculo - " + item.Modelo);
                 }
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btn_voltar_home_Click(object sender, System.EventArgs e)
@@ -136,6 +113,7 @@ namespace SeminarioP2
                     ctx.Table.Remove(itemTable);
                     ctx.SaveChanges();
                 }
+                MessageBox.Show("Venda realizado com sucesso - " + itemTable.Modelo);
             }
 
             atualizaGrid();
@@ -145,18 +123,25 @@ namespace SeminarioP2
         {
             try { 
             string item = listBoxVeiculos.Items[listBoxVeiculos.SelectedIndex].ToString();
-            string aux = item.Substring(0, 3);
-            return int.Parse(aux);
+            return int.Parse(item.Substring(0, 3));
             } catch(Exception ex) {
-                MessageBox.Show(ex.Message);
                 Console.WriteLine(ex);
             }
             return 0;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private string tratarId(string i)
         {
-
+            switch (i.Length)
+            {
+                case (1):
+                    return "00" + i;
+                case (2):
+                    return "0" + i;
+                case (3):
+                    return i;
+            }
+            return "0";
         }
     }
 }

@@ -156,7 +156,6 @@
             this.pb_veiculo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_veiculo.TabIndex = 13;
             this.pb_veiculo.TabStop = false;
-            this.pb_veiculo.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Form2
             // 

@@ -11,13 +11,10 @@ namespace SeminarioP2.Classes
         private static ConcessionariaMoto concessionariaMoto = null;
         private static ConcessionariaCaminhao concessionariaCaminhao = null;
 
-        private static IVeiculo veiculo = null;
-
         private static Venda venda = null;
 
         public ConcessionariaFacade()
         {
-
         }
 
         public void iniciarConcessionarias()
@@ -32,6 +29,7 @@ namespace SeminarioP2.Classes
 
         public void comprarMoto(String modelo, String beneficio)
         {
+            IVeiculo veiculo = null;
             if (veiculo == null)
             {
                 veiculo = concessionariaMoto.comprarVeiculo(modelo, beneficio);
@@ -46,6 +44,7 @@ namespace SeminarioP2.Classes
 
         public void comprarCarro(String modelo, String beneficio)
         {
+            IVeiculo veiculo = null;
             if (veiculo == null)
             {
                 veiculo = concessionariaCarro.comprarVeiculo(modelo, beneficio);
@@ -60,6 +59,7 @@ namespace SeminarioP2.Classes
 
         public void comprarCaminhao(String modelo, String beneficio)
         {
+            IVeiculo veiculo = null;
             if (veiculo == null)
             {
                 veiculo = concessionariaCaminhao.comprarVeiculo(modelo, beneficio);
@@ -88,7 +88,7 @@ namespace SeminarioP2.Classes
             Console.WriteLine();
         }
 
-        public void venderVeiculo()
+        public void venderVeiculo(IVeiculo veiculo)
         {
             switch (veiculo.getTipo())
             {

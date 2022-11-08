@@ -19,14 +19,14 @@ namespace SeminarioP2
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 1;
-            progressBar1.Maximum = 1000000;
+            progressBar1.Maximum = 900000;
             progressBar1.Step = 1;
             progressBar1.Value = 1;
         }
 
         private async void loadProgressBar()
         {
-            for (int j = 0; j < 500000; j++)
+            for (int j = 0; j < 300000; j++)
             {
                 progressBar1.PerformStep();
             }
@@ -59,26 +59,26 @@ namespace SeminarioP2
             progressBar();
             loadProgressBar();
 
-            await Task.Run(() =>
+            for (int i = 0; i < clb_lista_tipo_veiculos.CheckedItems.Count; i++)
             {
-                for (int i = 0; i < clb_lista_tipo_veiculos.CheckedItems.Count; i++)
+                if (clb_lista_tipo_veiculos.CheckedItems[i].ToString() == "Caminhão")
                 {
-                    if (clb_lista_tipo_veiculos.CheckedItems[i].ToString() == "Caminhão")
-                    {
-                        program.comprarCaminhao(text_modelo.Text, text_beneficio.Text);
-                    }
-
-                    if (clb_lista_tipo_veiculos.CheckedItems[i].ToString() == "Carro")
-                    {
-                        program.comprarCarro(text_modelo.Text, text_beneficio.Text);
-                    }
-
-                    if (clb_lista_tipo_veiculos.CheckedItems[i].ToString() == "Moto")
-                    {
-                        program.comprarMoto(text_modelo.Text, text_beneficio.Text);
-                    }
+                    loadProgressBar();
+                    program.comprarCaminhao(text_modelo.Text, text_beneficio.Text);
                 }
-            });
+
+                if (clb_lista_tipo_veiculos.CheckedItems[i].ToString() == "Carro")
+                {
+                    loadProgressBar();
+                    program.comprarCarro(text_modelo.Text, text_beneficio.Text);
+                }
+
+                if (clb_lista_tipo_veiculos.CheckedItems[i].ToString() == "Moto")
+                {
+                    loadProgressBar();
+                    program.comprarMoto(text_modelo.Text, text_beneficio.Text);
+                }
+            }
 
             loadProgressBar();
             
