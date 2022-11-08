@@ -5,6 +5,7 @@ namespace SeminarioP2.Classes
 {
     public class VeiculoCarro : IVeiculo
     {
+        public int id { get; set; }
         public int tipo { get; set; }
         public string modelo { get; set; }
         public string beneficio { get; set; }

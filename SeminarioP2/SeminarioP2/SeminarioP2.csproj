@@ -47,6 +47,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -170,6 +171,9 @@
       <DependentUpon>Concessionaria.edmx</DependentUpon>
       <LastGenOutput>Concessionaria.cs</LastGenOutput>
     </Content>
+    <None Include="Image\moto.jpg" />
+    <None Include="Image\carro.png" />
+    <None Include="Image\caminhao.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
