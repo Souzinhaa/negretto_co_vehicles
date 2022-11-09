@@ -143,5 +143,12 @@ namespace SeminarioP2
             }
             return "0";
         }
+
+        private void btn_voltar_cadastro_Click(object sender, EventArgs e)
+        {
+            Form3 voltarTelaCadastro = new Form3();
+            voltarTelaCadastro.Show();
+            Hide();
+        }
     }
 }
