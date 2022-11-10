@@ -1,5 +1,6 @@
 ﻿using SeminarioP2.Interface;
 using System;
+using System.Linq;
 
 namespace SeminarioP2.Classes
 {
@@ -86,6 +87,41 @@ namespace SeminarioP2.Classes
             Console.WriteLine("! Voce precisa vender o veiculo antes de comprar outro !");
             Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             Console.WriteLine();
+        }
+
+        public IVeiculo vendaVeiculo(int id)
+        {
+            using (ConcessionariaEntities ctx = new ConcessionariaEntities())
+            {
+                if (ctx == null)
+                {
+                    return null;
+                }
+
+                Table itemTable = ctx.Table.Where(x => x.Id == id).SingleOrDefault();
+
+                IVeiculo veiculo = null;
+
+                if (itemTable != null)
+                {
+                    ctx.Table.Remove(itemTable);
+                    ctx.SaveChanges();
+
+                    switch (itemTable.Categoria) {
+                        case 1:
+                            veiculo = new VeiculoMoto(itemTable.Modelo, itemTable.Beneficio);
+                            return veiculo;
+                        case 2:
+                            veiculo = new VeiculoCarro(itemTable.Modelo, itemTable.Beneficio);
+                            return veiculo;
+                        case 3:
+                            veiculo = new VeiculoCaminhao(itemTable.Modelo, itemTable.Beneficio);
+                            return veiculo;
+                    }
+                }
+            }
+
+            return null;
         }
 
         public void venderVeiculo(IVeiculo veiculo)

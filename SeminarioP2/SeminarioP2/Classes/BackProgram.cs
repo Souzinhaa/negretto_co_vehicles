@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeminarioP2.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -30,6 +31,11 @@ namespace SeminarioP2.Classes
         public void comprarCaminhao(String modelo, String beneficio)
         {
             concessionariaFacade.comprarCaminhao(modelo, beneficio);
+        }
+
+        public IVeiculo venderVeiculo(int id)
+        {
+            return concessionariaFacade.vendaVeiculo(id);
         }
 
         public static BackProgram getInstance()

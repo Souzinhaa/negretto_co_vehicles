@@ -30,6 +30,10 @@ namespace SeminarioP2.Classes
         {
             return modelo + " Moto";
         }
+        public string getModelo()
+        {
+            return modelo;
+        }
         public int getTipo()
         {
             return this.tipo;

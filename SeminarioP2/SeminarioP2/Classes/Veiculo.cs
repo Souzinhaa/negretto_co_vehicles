@@ -39,6 +39,10 @@ namespace SeminarioP2.Classes
         {
             return modelo;
         }
+        public string getModelo()
+        {
+            return modelo;
+        }
         public virtual void exibeDetalhes()
         {
             Console.WriteLine(exibeModelo());

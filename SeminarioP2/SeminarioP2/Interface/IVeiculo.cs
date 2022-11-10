@@ -4,6 +4,7 @@
     {
         string exibeBeneficios();
         string exibeModelo();
+        string getModelo();
         int getTipo();
     }
 }

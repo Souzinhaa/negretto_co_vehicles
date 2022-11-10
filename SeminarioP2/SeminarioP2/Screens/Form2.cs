@@ -98,25 +98,19 @@ namespace SeminarioP2
 
         private void btn_vender_Click(object sender, System.EventArgs e)
         {
-            int id = selecionarId();
-
-            using (ConcessionariaEntities ctx = new ConcessionariaEntities())
+            try
             {
-                if (ctx == null)
-                {
-                    return;
-                }
+                int id = selecionarId();
 
-                Table itemTable = ctx.Table.Where(x => x.Id == id).SingleOrDefault();
+                IVeiculo veiculo = ConcessionariaFacade.getInstance().vendaVeiculo(id);
 
-                if (itemTable != null) { 
-                    ctx.Table.Remove(itemTable);
-                    ctx.SaveChanges();
-                }
-                MessageBox.Show("Venda realizado com sucesso - " + itemTable.Modelo);
+                MessageBox.Show("Venda realizado com sucesso - " + veiculo.getModelo());
+
+                atualizaGrid();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
-
-            atualizaGrid();
         }
 
         private int selecionarId()
